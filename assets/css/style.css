@@ -820,6 +820,11 @@ input, textarea {
 
 .mapa {
   margin-top: 3rem;
+  
+}
+
+.wpc {
+  width: 100%;
 }
 
 
@@ -1152,6 +1157,10 @@ a {
 
   .heightcont2 {
     height: 5rem;
+  }
+
+  .wpc {
+    width: 75%;
   }
 }
 
