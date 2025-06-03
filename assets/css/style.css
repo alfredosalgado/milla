@@ -68,7 +68,7 @@
 /* FIN NAVBAR */
 
 .bg-translucido {
-  background-color: #156082a8 !important;
+  background-color: #1560829c !important;
   backdrop-filter: blur(6px); /* opcional: efecto vidrio */
   transition: background-color 0.3s ease;
 }

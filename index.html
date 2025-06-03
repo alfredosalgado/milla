@@ -103,10 +103,8 @@
                       <li>Más...</li>
                     </ul>
                   </details>
-                  <a href="https://wa.me/56991841244?text=Hola,%20me%20interesa%20cotizar%20productos%20de%20higiene%20y%20aseo%20industrial" 
-                  class="btn-serv texto-fade mb-3">
-                 Más información
-                </a>
+                  <button class="btn-serv texto-fade mb-3" onclick="abrirModal('Higiene y Aseo Industrial')">Más información</button>
+
                 </div>
               </div>
     
@@ -134,10 +132,8 @@
                       <li>Más...</li>
                     </ul>
                   </details>
-                  <a href="https://wa.me/56991841244?text=Hola,%20necesito%20informaci%C3%B3n%20sobre%20EPP%20certificados" 
-                  class="btn-serv texto-fade mb-3">
-                 Más información
-                </a>
+                  <button class="btn-serv texto-fade mb-3" onclick="abrirModal('Equipos de Protección Personal (EPP)')">Más información</button>
+
                 </div>
               </div>
 
@@ -166,10 +162,8 @@
                       <li>Más...</li>
                     </ul>
                   </details>
-                  <a href="https://wa.me/56991841244?text=Hola,%20necesito%20informaci%C3%B3n%20sobre%20herramientas%20industriales" 
-                  class="btn-serv texto-fade mb-3">
-                 Más información
-                </a>
+                  <button class="btn-serv texto-fade mb-3" onclick="abrirModal('Herramientas y Equipos')">Más información</button>
+
                 </div>
               </div>
     
@@ -200,10 +194,8 @@
                       <li>Más...</li>
                     </ul>
                   </details>
-                  <a href="https://wa.me/56991841244?text=Hola,%20quiero%20cotizar%20insumos%20para%20casino%20o%20campamento." 
-                  class="btn-serv texto-fade mb-3">
-                 Más información
-                </a>
+                  <button class="btn-serv texto-fade mb-3" onclick="abrirModal('Abastecimiento para Casinos y Campamentos')">Más información</button>
+
                 </div>
               </div>
     
@@ -219,6 +211,28 @@
         </div>
       </div>
     </section>
+
+
+
+    <div id="modalContacto" class="modal" style="display:none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.6); justify-content: center; align-items: center;">
+      <div style="background: #fff; padding: 2rem; border-radius: 8px; width: 90%; max-width: 500px; position: relative;">
+        <span onclick="cerrarModal()" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size: 1.5rem">&times;</span>
+        <h4>Solicitar más información</h4>
+        <form id="formModalContacto">
+          <input type="hidden" name="servicio" id="servicioModal">
+          <input type="text" name="nombre" placeholder="Tu nombre" required style="width: 100%; margin: 10px 0; padding: 10px;">
+          <input type="email" name="correo" placeholder="Tu correo" required style="width: 100%; margin: 10px 0; padding: 10px;">
+          <input type="tel" name="telefono" placeholder="Tu teléfono" required style="width: 100%; margin: 10px 0; padding: 10px;">
+          <textarea name="mensaje" placeholder="Mensaje" style="width: 100%; margin: 10px 0; padding: 10px;" rows="4">Estoy interesado en conocer más sobre este servicio.</textarea>
+          <button type="submit" style="background-color: #006a9f; color: white; border: none; padding: 10px 20px; border-radius: 5px;">Enviar</button>
+        </form>        
+      </div>
+    </div>
+
+    <div id="popupExito" style="display:none; position: fixed; z-index: 9999; top: 30%; left: 50%; transform: translateX(-50%); background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+      <p style="margin: 0; font-weight: bold; font-size: 1.1rem; text-align: center;">✅ Tu mensaje ha sido enviado.<br>Te contactaremos en breve.</p>
+    </div>
+    
 
 
 
@@ -547,16 +561,22 @@
       
     </div>
 
-    <form class="formulario" onsubmit="enviarWhatsApp(); return false;">
+    <form id="formContacto" class="formulario">
       <div class="form-row">
-        <input type="text" id="nombre" placeholder="Nombre" required>
-        <input type="tel" id="telefono" placeholder="Teléfono" required>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+        <input type="tel" name="telefono" id="telefono" placeholder="Teléfono" required>
       </div>
-      <input type="email" id="correo" placeholder="Dirección de correo electrónico" required>
-      <textarea id="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+      <input type="email" name="correo" id="correo" placeholder="Dirección de correo electrónico" required>
+      <textarea name="mensaje" id="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+      <input type="hidden" name="servicio" value="Formulario de Contacto">
       <button type="submit" class="contacto-btn">CONTACTO</button>
-
     </form>
+    
+    <!-- Popup de confirmación -->
+    <div id="popupExito" style="display:none; position: fixed; z-index: 9999; top: 30%; left: 50%; transform: translateX(-50%); background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+      <p style="margin: 0; font-weight: bold; font-size: 1.1rem; text-align: center;">✅ Tu mensaje ha sido enviado.<br>Te contactaremos en breve.</p>
+    </div>
+    
   </div>
 
   <div class="mapa">

@@ -278,21 +278,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
-function enviarWhatsApp() {
-  const nombre = document.getElementById("nombre").value;
-  const telefono = document.getElementById("telefono").value;
-  const correo = document.getElementById("correo").value;
-  const mensaje = document.getElementById("mensaje").value;
-
-  const texto = `Hola, mi nombre es ${nombre}.%0AMi teléfono es: ${telefono}.%0AMi correo es: ${correo}.%0AMensaje:%0A${mensaje}`;
-  const numero = "56991841244";
-  const url = `https://wa.me/${numero}?text=${texto}`;
-
-  window.open(url, "_blank");
+function abrirModal(servicio) {
+  document.getElementById('modalContacto').style.display = 'flex';
+  document.getElementById('servicioModal').value = servicio;
 }
+
+function cerrarModal() {
+  document.getElementById('modalContacto').style.display = 'none';
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('formModalContacto');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Evita recarga
+
+    const formData = new FormData(form);
+
+    fetch('enviar.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(result => {
+      cerrarModal();
+      mostrarPopupExito();
+      form.reset();
+    })
+    .catch(error => {
+      alert("Ocurrió un error al enviar el formulario.");
+      console.error(error);
+    });
+  });
+});
+
+function mostrarPopupExito() {
+  const popup = document.getElementById('popupExito');
+  popup.style.display = 'block';
+  setTimeout(() => {
+    popup.style.display = 'none';
+  }, 4000);
+}
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const formContacto = document.getElementById('formContacto');
+
+  if (formContacto) {
+    formContacto.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(formContacto);
+
+      fetch('enviar.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.text())
+        .then(result => {
+          mostrarPopupExito();
+          formContacto.reset();
+
+        })
+        .catch(error => {
+          alert("Ocurrió un error al enviar el formulario.");
+          console.error(error);
+        });
+    });
+  }
+});
 
 
 
