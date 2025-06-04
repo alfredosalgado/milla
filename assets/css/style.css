@@ -207,6 +207,7 @@
   background: url('../img/us.jpg') center center/cover no-repeat;
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: flex-start;
   padding-top: 185px;
   padding-bottom: 50px;
@@ -227,6 +228,7 @@
   max-width: 420px;
   border-radius: 10px;
   box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  
 }
 
 .nosotros-text h2 {
@@ -241,7 +243,8 @@
   width: 150px;
   height: 3px;
   background-color: #dea50e; /* Morado institucional */
-  margin: 0.5rem;
+  margin: 0.5rem auto;
+  
 }
 
 .nosotros-text p {
@@ -461,7 +464,7 @@
   width: 150px;
   height: 3px;
   background-color: #dea50e; /* Morado institucional */
-  margin: 0.5rem;
+  margin: 0.5rem auto;
 }
 
 .why-text p {
